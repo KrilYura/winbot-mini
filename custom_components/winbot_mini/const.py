@@ -1,6 +1,7 @@
 """Constants for the Winbot Mini integration."""
 
 DOMAIN = "winbot_mini"
+VERSION = "1.0.3"
 
 GATT_WRITE_UUID = "0000fff2-0000-1000-8000-00805f9b34fb"
 GATT_NOTIFY_UUIDS = (

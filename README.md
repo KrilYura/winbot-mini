@@ -1,5 +1,7 @@
 # Winbot Mini
 
+**Version:** 1.0.3
+
 A Home Assistant custom integration that controls an Ecovacs Winbot Mini window cleaner over Bluetooth (including ESPHome Bluetooth Proxies).
 
 ## Overview
@@ -110,7 +112,21 @@ data:
 - Confirm the vacuum entity is available (connected)
 - Check Home Assistant logs for BLE write / disconnect errors
 
-## File Structure
+## Development
+
+### Version Management
+
+When releasing a change, bump the version in all of these files to the same value:
+
+- `.version`
+- `custom_components/winbot_mini/manifest.json` (`version` field)
+- `custom_components/winbot_mini/const.py` (`VERSION` constant)
+- `README.md` (`**Version:**` at the top)
+- `VERSION.md` (changelog entry)
+
+Follow [Semantic Versioning](https://semver.org/). See `.agent/workflows/update-version.md` for the full checklist.
+
+### File Structure
 
 ```
 winbot-mini/
@@ -118,7 +134,7 @@ winbot-mini/
 │   └── winbot_mini/
 │       ├── __init__.py          # Integration setup
 │       ├── config_flow.py       # Bluetooth / UI discovery
-│       ├── const.py             # Constants
+│       ├── const.py             # Constants and version
 │       ├── device.py            # BLE connection and commands
 │       ├── protocol.py          # Frame encoding / decoding
 │       ├── vacuum.py            # Vacuum platform
@@ -126,8 +142,11 @@ winbot-mini/
 │       ├── manifest.json        # Integration metadata
 │       ├── strings.json         # Localization
 │       └── translations/
+├── .agent/workflows/            # Agent versioning workflow
+├── .version                     # Version number
 ├── hacs.json
-└── README.md
+├── README.md
+└── VERSION.md                   # Changelog
 ```
 
 ## License
